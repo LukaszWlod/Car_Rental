@@ -16,34 +16,51 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>
-
-    <script>
-        $(document).ready(function(){
-            // Activate tooltip
-            $('[data-toggle="tooltip"]').tooltip();
-
-            // Select/Deselect checkboxes
-            var checkbox = $('table tbody input[type="checkbox"]');
-            $("#selectAll").click(function(){
-                if(this.checked){
-                    checkbox.each(function(){
-                        this.checked = true;
-                    });
-                } else{
-                    checkbox.each(function(){
-                        this.checked = false;
-                    });
-                }
-            });
-            checkbox.click(function(){
-                if(!this.checked){
-                    $("#selectAll").prop("checked", false);
-                }
-            });
-        });
-    </script>
 </head>
+
+
 <body>
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://placeholder.pics/svg/150x50/888888/EEE/Logo" alt="..." height="36">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Rezerwacje</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Samochody</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Klienci</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <ul class="nav navbar-nav ml-auto">
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="#"><span class="fas fa-user"></span>Zaloguj</a>-->
+<!--            </li>-->
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Wyloguj</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
