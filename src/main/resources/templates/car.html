@@ -70,7 +70,7 @@
                         <h2> <b> Zarządzaj samochodami </b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#addCostumer" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowego klienta</span></a>
+                        <a href="#addCostumer" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowy samochód</span></a>
                         <!--                        <a href="#deleteCostumer" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>-->
                     </div>
                 </div>
@@ -100,8 +100,8 @@
                     <td th:text="${car.isAvailable} ? 'Tak' : 'Nie'"></td>
 
                     <td>
-                        <a th:href="@{/clients/getOne/(id=${client.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
-                        <a th:href="@{/clients/delete/{id}(id=${client.id})}" id="deleteButton" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <a th:href="@{/clients/getOne/(id=${car.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                        <a th:href="@{/clients/delete/{id}(id=${car.id})}" id="deleteButton" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
 
@@ -132,7 +132,7 @@
             <!--/*@thymesVar id="car" type="github.lukaszwlod.rental.model.Car"*/-->
             <form th:action="@{/cars/addNew}" th:object="${car}" method="post" >
                 <div class="modal-header">
-                    <h4 class="modal-title">Dodaj Klienta</h4>
+                    <h4 class="modal-title">Dodaj Samochód</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -152,10 +152,10 @@
                         <label>Cena</label>
                         <input type="text" class="form-control" required th:field="*{price}">
                     </div>
-                    <div class="form-group">
-                        <label>Dostępność</label>
-                        <input type="text" class="form-control" required th:text="*{isAvailable} ? 'Tak' : 'Nie'">
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label>Dostępność</label>-->
+<!--                        <input type="text" class="form-control" required th:text="*{isAvailable} ? 'Tak' : 'Nie'">-->
+<!--                    </div>-->
 
                 </div>
                 <div class="modal-footer">
@@ -177,7 +177,7 @@
             <form th:action="@{/cars/edit}"  method="put" th:object="${car}">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Edydcja  danych klienta</h4>
+                    <h4 class="modal-title">Edydcja  danych samochodu</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -223,7 +223,7 @@
 
             <form action="" method="delete" id="deleteForm" >
                 <div class="modal-header">
-                    <h4 class="modal-title">Usuń Klienta</h4>
+                    <h4 class="modal-title">Usuń samochód</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">

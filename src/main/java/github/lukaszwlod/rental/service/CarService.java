@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public interface CarService {
     List<Car> getCars();
-    void saveCars(Car car);
+    void saveCar(Car car);
     void deleteCarById(Long id);
     void update (Car car);
 
