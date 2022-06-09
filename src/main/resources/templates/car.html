@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Clients</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>
+</head>
+
+
+<body>
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://cdn.pixabay.com/photo/2013/07/13/11/48/bmw-158703_960_720.png" alt="logo" height="52">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Wypożyczenia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Samochody</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Klienci</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <ul class="nav navbar-nav ml-auto">
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href="#"><span class="fas fa-user"></span>Zaloguj</a>-->
+            <!--            </li>-->
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Wyloguj</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2> <b> Zarządzaj samochodami </b></h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#addCostumer" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowego klienta</span></a>
+                        <!--                        <a href="#deleteCostumer" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>-->
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Marka</th>
+                    <th>Model</th>
+                    <th>Rok produkcji</th>
+                    <th>Cena za dobę</th>
+                    <th>Dostępny</th>
+                    <th>Akcja</th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                <tr th:each="car: ${carList}" >
+
+                    <td th:text="${car.id}" > </td>
+                    <td th:text="${car.brand}" > </td>
+                    <td th:text="${car.model}"></td>
+                    <td th:text="${car.yearOfProduction}"></td>
+                    <td th:text="${car.price}"></td>
+                    <td th:text="${car.rented}"></td>
+
+                    <td>
+                        <a th:href="@{/clients/getOne/(id=${client.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                        <a th:href="@{/clients/delete/{id}(id=${client.id})}" id="deleteButton" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <!--            <div class="clearfix">-->
+            <!--                <div class="hint-text"> <b>1</b> rekordów z <b>20</b> </div>-->
+            <!--                <ul class="pagination">-->
+            <!--                    <li class="page-item disabled"><a href="#">Poprzednia</a></li>-->
+            <!--                    <li class="page-item-active"><a href="#" class="page-link">1</a></li>-->
+            <!--                    <li class="page-item"><a href="#" class="page-link">2</a></li>-->
+            <!--                    <li class="page-item"><a href="#" class="page-link">3</a></li>-->
+            <!--                    <li class="page-item"><a href="#" class="page-link">4</a></li>-->
+            <!--                    <li class="page-item"><a href="#" class="page-link">5</a></li>-->
+            <!--                    <li class="page-item"><a href="#" class="page-link">Następna</a></li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
+        </div>
+    </div>
+</div>
+<!-- Add Modal HTML -->
+<div id="addCostumer" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--/*@thymesVar id="client" type="github.lukaszwlod.rental.model.Client"*/-->
+            <form th:action="@{/clients/addNew}" th:object="${client}" method="post" >
+                <div class="modal-header">
+                    <h4 class="modal-title">Dodaj Klienta</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Imię</label>
+                        <input type="text" class="form-control" required th:field="*{name}">
+                    </div>
+                    <div class="form-group">
+                        <label>Nazwisko</label>
+                        <input type="text" class="form-control" required th:field="*{lastName}">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" required th:field="*{email}">
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <textarea class="form-control" required th:field="*{address}" ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        <input type="text" class="form-control" required th:field="*{phoneNumber}">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">
+                    <input type="submit" class="btn btn-success" value="Dodaj">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Edit Modal HTML -->
+<div id="editClient" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+
+            <!--/*@thymesVar id="client" type="github.lukaszwlod.rental.model.Client"*/-->
+            <form th:action="@{/clients/edit}"  method="put" th:object="${client}">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Edydcja  danych klienta</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Id</label>
+                        <input id="editId" type="text" class="form-control" required th:field="*{id}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Imię</label>
+                        <input id="editName" type="text" class="form-control" required th:field="*{name}" >
+                    </div>
+                    <div class="form-group">
+                        <label>Nazwisko</label>
+                        <input  id="editLastName" type="text" class="form-control" required  th:field="*{lastName}">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input  id="editEmail" type="email" class="form-control" required th:field="*{email}">
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <textarea id="editAddress" class="form-control" required th:field="*{address}" ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label> Telefon</label>
+                        <input id="editPhone" type="text" class="form-control" th:field="*{phoneNumber}" required >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">
+                    <input type="submit" class="btn btn-info" value="Zapisz">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteCostumer" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--/*@thymesVar id="client" type="github.lukaszwlod.rental.model.Client"*/-->
+
+            <form action="" method="delete" id="deleteForm" >
+                <div class="modal-header">
+                    <h4 class="modal-title">Usuń Klienta</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Jesteś pewien że chcesz usuńąć ten wpis?</p>
+                    <p class="text-warning"><small>Ta akcja jest nieodwracalna.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">
+                    <input type="submit" class="btn btn-danger" value=Usuń   >
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

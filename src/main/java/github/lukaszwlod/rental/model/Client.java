@@ -23,6 +23,7 @@ public class Client {
     private String email;
     private String address;
     private int phoneNumber;
+    private boolean rented;
 }
 
 
