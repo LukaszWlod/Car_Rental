@@ -41,8 +41,15 @@ public class CarController {
     }
 
     @RequestMapping(value="/edit",method = {RequestMethod.PUT,RequestMethod.GET})
-    public String showEditForm(@ModelAttribute Car car){
+    public String editEntry(@ModelAttribute Car car){
         carService.update(car);
+        return "redirect:/cars/showCars";
+    }
+
+
+    @RequestMapping(value="/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String deleteEntry(@PathVariable("id") Long id ){
+        carService.deleteCarById(id);
         return "redirect:/cars/showCars";
     }
 
