@@ -16,11 +16,10 @@ $('document').ready(function () {
             $('#editYearOfProduction').val(car.yearOfProduction);
             $('#editPrice').val(car.price);
             $('#editAvailable').val(car.available);
-
         });
 
 
-        $('#editClient').modal();
+        $('#editCar').modal();
     });
 //show delete modal after click
     $('.table #deleteButton').on('click',function (event) {

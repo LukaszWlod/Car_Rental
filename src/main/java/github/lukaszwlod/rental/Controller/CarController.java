@@ -40,6 +40,12 @@ public class CarController {
         return "redirect:/cars/showCars";
     }
 
+    @RequestMapping(value="/edit",method = {RequestMethod.PUT,RequestMethod.GET})
+    public String showEditForm(@ModelAttribute Car car){
+        carService.update(car);
+        return "redirect:/cars/showCars";
+    }
+
 
 
 

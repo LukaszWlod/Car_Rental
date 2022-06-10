@@ -7,7 +7,7 @@ $('document').ready(function () {
 
      var href= $(this).attr('href');
 
-         console.log(href);
+
 
     $.get(href, function(client, status){
         $('#editId').val(client.id);
@@ -20,7 +20,7 @@ $('document').ready(function () {
     });
 
 
-    $('#edit').modal();
+    $('#editClient').modal();
 });
 //show delete modal after click
    $('.table #deleteButton').on('click',function (event) {
