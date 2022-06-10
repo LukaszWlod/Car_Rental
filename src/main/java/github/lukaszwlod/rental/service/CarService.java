@@ -14,5 +14,5 @@ public interface CarService {
     void update (Car car);
 
 
-    Optional<Client> getOne(Long id);
+    Optional<Car> getOne(Long id);
 }

@@ -5,12 +5,10 @@ import github.lukaszwlod.rental.model.Client;
 import github.lukaszwlod.rental.service.CarService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/cars")
@@ -20,6 +18,11 @@ public class CarController {
 
     public CarController(CarService carService) {
         this.carService = carService;
+    }
+
+    @GetMapping("/getOne")
+    public @ResponseBody Optional<Car> getOne(Long id) {
+        return carService.getOne(id);
     }
 
    @GetMapping("/showCars")
@@ -38,10 +41,7 @@ public class CarController {
     }
 
 
-    public void addAttributes(Model model){
-        model.addAttribute("car",new Car());
-        model.addAttribute("clientsList",carService.getCars());
-    }
+
 
 
 

@@ -41,7 +41,9 @@ public class CarServiceImp  implements CarService{
     }
 
     @Override
-    public Optional<Client> getOne(Long id) {
-        return Optional.empty();
+    public Optional<Car> getOne(Long id) {
+        return carRepository.findById(id);
     }
+
+
 }

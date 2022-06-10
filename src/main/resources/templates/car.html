@@ -15,7 +15,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>
+<!--    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>-->
+    <script type="text/javascript" src="../static/car.js" th:src="@{/car.js}"></script>
 </head>
 
 
@@ -97,10 +98,19 @@
                     <td th:text="${car.model}"></td>
                     <td th:text="${car.yearOfProduction}"></td>
                     <td th:text="${car.price}"></td>
-                    <td th:text="${car.isAvailable} ? 'Tak' : 'Nie'"></td>
+
+<!--                    <td>-->
+
+
+<!--                        <span class="custom-checkbox">-->
+<!--								<input type="checkbox" id="checkbox1" name="options[]" value="1" th:checked="*{car.available}">-->
+<!--								<label for="checkbox1"></label>-->
+<!--							</span>-->
+<!--                    </td>-->
+                    <td th:text="${car.available} ? 'Tak' : 'Nie'"></td>
 
                     <td>
-                        <a th:href="@{/clients/getOne/(id=${car.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
+                        <a th:href="@{/cars/getOne/(id=${car.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
                         <a th:href="@{/clients/delete/{id}(id=${car.id})}" id="deleteButton" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
@@ -154,8 +164,17 @@
                     </div>
 <!--                    <div class="form-group">-->
 <!--                        <label>Dostępność</label>-->
-<!--                        <input type="text" class="form-control" required th:text="*{isAvailable} ? 'Tak' : 'Nie'">-->
+<!--                        <input type="text" class="form-control" required th:field="*{available}" >-->
 <!--                    </div>-->
+
+                    <div class="form-group">
+                        <label>Dostępność</label>
+
+                        <input type="checkbox" id="checkbox1" name="options[]" th:field="*{available}">
+                        <label for="checkbox1"></label>
+
+                    </div>
+
 
                 </div>
                 <div class="modal-footer">
@@ -167,7 +186,7 @@
     </div>
 </div>
 <!-- Edit Modal HTML -->
-<div id="editClient" class="modal fade">
+<div id="edit" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -182,30 +201,34 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Id</label>
-                        <input id="editId" type="text" class="form-control" required th:field="*{id}">
+<!--                        <label>Id</label>-->
+                        <input id="editId" type="hidden" class="form-control" required th:field="*{id}">
                     </div>
 
                     <div class="form-group">
                         <label>Producent</label>
-                        <input id="editName" type="text" class="form-control" required th:field="*{brand}" >
+                        <input id="editBrand" type="text" class="form-control" required th:field="*{brand}" >
                     </div>
                     <div class="form-group">
                         <label>Model</label>
-                        <input  id="editLastName" type="text" class="form-control" required  th:field="*{model}">
+                        <input  id="editModel" type="text" class="form-control" required  th:field="*{model}">
                     </div>
                     <div class="form-group">
                         <label>Rok produkcji</label>
-                        <input  id="editEmail" type="email" class="form-control" required th:field="*{yearOfProduction}">
+                        <input  id="editYearOfProduction" type="text" class="form-control" required th:field="*{yearOfProduction}">
                     </div>
                     <div class="form-group">
                         <label>Cena</label>
-                        <textarea id="editAddress" class="form-control" required th:field="*{price}" ></textarea>
+                        <textarea id="editPrice" class="form-control" required th:field="*{price}" ></textarea>
                     </div>
 <!--                    <div class="form-group">-->
-<!--                        <label> Dostępność</label>-->
-<!--                        <input id="editPhone" type="text" class="form-control" th:field="*{isAvailable}  ? 'Tak' : 'Nie'" required >-->
+<!--                       <label> Dostępność</label>&ndash;&gt;-->
+<!--                        <input id="editPhone" type="hidden" class="form-control" th:field="*{available}" required >-->
 <!--                    </div>-->
+                    <div class="form-group">
+                        <label for="editAvailable">Dostępność</label>
+                        <input type="checkbox" id="editAvailable" th:field="*{available}">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">

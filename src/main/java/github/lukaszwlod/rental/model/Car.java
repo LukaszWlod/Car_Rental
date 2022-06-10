@@ -1,6 +1,5 @@
 package github.lukaszwlod.rental.model;
 
-import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,22 +21,9 @@ public class Car {
         private String yearOfProduction;
         private double price;
 
-        private  boolean isAvailable;
+        private  boolean available;
 
-        public Car(Long id, String brand, String model, String yearOfProduction, double price, boolean isAvailable) {
-                this.id = id;
-                this.brand = brand;
-                this.model = model;
-                this.yearOfProduction = yearOfProduction;
-                this.price = price;
-                this.isAvailable = isAvailable;
-        }
 
-        public boolean isAvailable() {
-                return isAvailable;
-        }
 
-        public void setAvailable(boolean available) {
-                isAvailable = available;
-        }
+
 }

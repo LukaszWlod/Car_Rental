@@ -9,19 +9,19 @@ $('document').ready(function () {
 
          console.log(href);
 
-        $.get(href, function(client, status){
-            $('#editId').val(client.id);
-            $('#editName').val(client.name);
-            $('#editLastName').val(client.lastName);
-            $('#editEmail').val(client.email);
-            $('#editAddress').val(client.address);
-            $('#editPhone').val(client.phoneNumber);
+    $.get(href, function(client, status){
+        $('#editId').val(client.id);
+        $('#editName').val(client.name);
+        $('#editLastName').val(client.lastName);
+        $('#editEmail').val(client.email);
+        $('#editAddress').val(client.address);
+        $('#editPhone').val(client.phoneNumber);
 
-        });
-
-
-        $('#editClient').modal();
     });
+
+
+    $('#edit').modal();
+});
 //show delete modal after click
    $('.table #deleteButton').on('click',function (event) {
        event.preventDefault();
