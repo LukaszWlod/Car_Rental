@@ -111,7 +111,7 @@
 
                     <td>
                         <a th:href="@{/cars/getOne/(id=${car.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
-                        <a th:href="@{/clients/delete/{id}(id=${car.id})}" id="deleteButton" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <a th:href="@{/cars/delete/{id}(id=${car.id})}" id="deleteButton" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
 
@@ -252,7 +252,7 @@
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">
-                    <input type="submit" class="btn btn-danger" value=Usuń   >
+                    <input type="submit" class="btn btn-danger" >
                 </div>
             </form>
         </div>

@@ -25,7 +25,7 @@ $('document').ready(function () {
     $('.table #deleteButton').on('click',function (event) {
         event.preventDefault();
         var href = $(this).attr('href');
-        console.log(href);
+
 
         $('#deleteForm').attr('action', href);
         $('#deleteCostumer').modal();
