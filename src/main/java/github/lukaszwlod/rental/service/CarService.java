@@ -13,6 +13,8 @@ public interface CarService {
     void deleteCarById(Long id);
     void update (Car car);
 
+    List<Car> getAvailableCars();
+
 
     Optional<Car> getOne(Long id);
 }

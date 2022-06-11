@@ -41,6 +41,11 @@ public class CarServiceImp  implements CarService{
     }
 
     @Override
+    public List<Car> getAvailableCars() {
+        return carRepository.findAllByAvailableTrue();
+    }
+
+    @Override
     public Optional<Car> getOne(Long id) {
         return carRepository.findById(id);
     }
