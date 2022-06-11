@@ -3,6 +3,8 @@ package github.lukaszwlod.rental.Controller;
 import github.lukaszwlod.rental.model.Car;
 import github.lukaszwlod.rental.model.Client;
 import github.lukaszwlod.rental.service.CarService;
+import github.lukaszwlod.rental.service.ClientService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +17,12 @@ import java.util.Optional;
 public class CarController {
 
     private CarService carService;
+    private ClientService clientService;
 
-    public CarController(CarService carService) {
+   @Autowired
+    public CarController(CarService carService,ClientService clientService) {
         this.carService = carService;
+        this.clientService = clientService;
     }
 
     @GetMapping("/getOne")
@@ -31,6 +36,14 @@ public class CarController {
        List<Car> cars = carService.getCars();
        model.addAttribute("carList",cars);
         return "car";
+    }
+    @GetMapping("/showCarsToRent/{clientId}")
+    public String showCarsToRent(@PathVariable("clientId") Long clientId ,Model model){
+        List<Car> cars = carService.getAvailableCars();
+        Optional<Client> client = clientService.getOne(clientId);
+        model.addAttribute("carList",cars);
+        model.addAttribute("client",client);
+        return "carsToRent";
     }
 
    @PostMapping("/addNew")
