@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
-      xmlns:th="http://www.thymeleaf.org"
-      lang="pl">
+        xmlns:th="http://www.thymeleaf.org"
+        lang="pl">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-<!--    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>-->
+    <!--    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>-->
     <script type="text/javascript" src="../static/car.js" th:src="@{/car.js}"></script>
 </head>
 
@@ -68,7 +68,7 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2> <b> Zarządzaj samochodami </b></h2>
+                        <h2> <b> Dostępne samochody </b></h2>
                     </div>
                     <div class="col-sm-6">
                         <a href="#addCostumer" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowy samochód</span></a>
@@ -99,14 +99,14 @@
                     <td th:text="${car.yearOfProduction}"></td>
                     <td th:text="${car.price}"></td>
 
-<!--                    <td>-->
+                    <!--                    <td>-->
 
 
-<!--                        <span class="custom-checkbox">-->
-<!--								<input type="checkbox" id="checkbox1" name="options[]" value="1" th:checked="*{car.available}">-->
-<!--								<label for="checkbox1"></label>-->
-<!--							</span>-->
-<!--                    </td>-->
+                    <!--                        <span class="custom-checkbox">-->
+                    <!--								<input type="checkbox" id="checkbox1" name="options[]" value="1" th:checked="*{car.available}">-->
+                    <!--								<label for="checkbox1"></label>-->
+                    <!--							</span>-->
+                    <!--                    </td>-->
                     <td th:text="${car.available} ? 'Tak' : 'Nie'"></td>
 
                     <td>
@@ -162,10 +162,10 @@
                         <label>Cena</label>
                         <input type="text" class="form-control" required th:field="*{price}">
                     </div>
-<!--                    <div class="form-group">-->
-<!--                        <label>Dostępność</label>-->
-<!--                        <input type="text" class="form-control" required th:field="*{available}" >-->
-<!--                    </div>-->
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>Dostępność</label>-->
+                    <!--                        <input type="text" class="form-control" required th:field="*{available}" >-->
+                    <!--                    </div>-->
 
                     <div class="form-group">
                         <label>Dostępność</label>
@@ -201,7 +201,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-<!--                        <label>Id</label>-->
+                        <!--                        <label>Id</label>-->
                         <input id="editId" type="hidden" class="form-control" required th:field="*{id}">
                     </div>
 
@@ -221,8 +221,8 @@
                         <label>Cena</label>
                         <textarea id="editPrice" class="form-control" required th:field="*{price}" ></textarea>
                     </div>
-                   <div class="form-group">
-<!--                       <label> Dostępność</label>-->
+                    <div class="form-group">
+                        <!--                       <label> Dostępność</label>-->
                         <input id="editAvailable" type="hidden" class="form-control" th:field="*{available}" required >
                     </div>
 
