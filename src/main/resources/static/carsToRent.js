@@ -10,17 +10,22 @@ $('document').ready(function () {
         console.log(href);
 
         $.get(href, function(car, status){
+            let clientId= $('#clientId').val();
+
+
 
             let carName = car.brand + ' ' + car.model;
             $('#car').val(carName);
             $('#editId').val(car.id);
-            $('#editBrand').val(car.brand);
-            $('#editModel').val(car.model);
-            $('#editYearOfProduction').val(car.yearOfProduction);
-            $('#editPrice').val(car.price);
-            $('#editAvailable').val(car.available);
+            // $('#editBrand').val(car.brand);
+            // $('#editModel').val(car.model);
+            // $('#editYearOfProduction').val(car.yearOfProduction);
+            // $('#editPrice').val(car.price);
+            // $('#editAvailable').val(car.available);
 
-            console.log(carName);
+            console.log("test");
+            console.log(clientId);
+            $('#sentClientId').val(clientId);
 
 
         });

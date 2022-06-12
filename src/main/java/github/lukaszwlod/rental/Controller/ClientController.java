@@ -1,6 +1,7 @@
 package github.lukaszwlod.rental.Controller;
 
 import github.lukaszwlod.rental.model.Client;
+import github.lukaszwlod.rental.model.Rental;
 import github.lukaszwlod.rental.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ public class ClientController {
 
    private ClientService clientService;
 
+
    @Autowired
    public ClientController(ClientService clientService) {
         this.clientService = clientService;
@@ -26,6 +28,10 @@ public class ClientController {
 
         this.addAttributes(model);
         List<Client> clients = clientService.getClients();
+
+        Rental rental = new Rental();
+        System.out.println(rental.toString());
+
 
 
         return "client";

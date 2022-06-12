@@ -30,5 +30,5 @@ public class RentalServiceImp  implements RentalService{
         rentalRepository.deleteById(id);
     }
 
- 
+
 }

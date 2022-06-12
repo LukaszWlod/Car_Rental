@@ -123,23 +123,20 @@
         </div>
     </div>
 </div>
-<!-- Add Modal HTML -->
 
 
-
-
-
-<!-- Edit Modal HTML -->
-<div id="editCar" class="modal fade">
+<div id="editCar" class="modal fade" >
     <div class="modal-dialog">
         <div class="modal-content">
 
 
 
-            <!--/*@thymesVar id="car" type="github.lukaszwlod.rental.model.Car"*/-->
-            <form th:action="@{/cars/edit}"  method="put" th:object="${car}">
 
-                <div class="modal-header">
+
+            <!--/*@thymesVar id="rental" type="github.lukaszwlod.rental.model.Rental"*/-->
+            <form th:action="@{/rentals/addRental}"  method="get" th:object="${rental}" >
+
+                <div class="modal-header" >
                     <h4 class="modal-title">Rezerwacja</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
@@ -152,7 +149,7 @@
 
                     <div class="form-group">
                         <label for="clientName">Klient</label>
-                        <textarea readonly id="clientName" class="form-control" th:text="${client.name+' '+client.lastName}"/>
+                        <textarea readonly id="clientName" class="form-control" th:text="${client.name+' '+client.lastName+' id '+client.id}"/>
                     </div>
 
 
@@ -163,46 +160,70 @@
 
 
                     <div class="form-group">
-                        <input id="editId" type="hidden" class="form-control" required th:field="*{id}">
-                    </div>
-
-
-                    <div class="form-group">
-                        <input id="editBrand" type="hidden" class="form-control" required th:field="*{brand}" >
+                        <input id="editId" type="hidden" class="form-control" required th:field="*{carId}">
                     </div>
 
                     <div class="form-group">
-                        <input  id="editModel" type="hidden" class="form-control" required  th:field="*{model}">
+                        <input id="clientId" type="hidden" class="form-control" required th:field="${client.id}">
                     </div>
 
                     <div class="form-group">
-                        <input  id="editYearOfProduction" type="hidden" class="form-control" required th:field="*{yearOfProduction}">
+                        <input id="sentClientId" type="hidden" class="form-control" required th:field="*{clientId}">
                     </div>
 
-                    <div class="form-group">
-                        <input id="editPrice" type="hidden" class="form-control" required th:field="*{price}" >
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <textarea id="clientId" type="hidden" class="form-control" th:field="${client.id}" ></textarea>-->
+<!--                    </div>-->
 
-                    <div class="form-group">
-                        <input id="editAvailable" type="hidden" class="form-control" th:field="*{available}" required >
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <textarea id="sentClientId" type="hidden" class="form-control" th:field="${clientId}" ></textarea>-->
+<!--                    </div>-->
 
 
 
-                        <!--/*@thymesVar id="rental" type="github.lukaszwlod.rental.model.Rental"*/-->
-                        <div class="form-group" th:object="${rental}">
+
+<!--                    <div class="form-group">-->
+<!--                        <input id="editId" type="hidden" class="form-control" required th:field="*{id}">-->
+<!--                    </div>-->
+
+
+<!--                    <div class="form-group">-->
+<!--                        <input id="editBrand" type="hidden" class="form-control" required th:field="*{brand}" >-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <input  id="editModel" type="hidden" class="form-control" required  th:field="*{model}">-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <input  id="editYearOfProduction" type="hidden" class="form-control" required th:field="*{yearOfProduction}">-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <input id="editPrice" type="hidden" class="form-control" required th:field="*{price}" >-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <input id="editAvailable" type="hidden" class="form-control" th:field="*{available}" required >-->
+<!--                    </div>-->
+
+
+
+
+                        <div class="form-group" >
                             <label for="dateIN">Data wypożyczenia</label>
                             <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                                 <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker1"
-                                       th:field="*{rentalDate}" id="dateIn" placeholder="Date"/>
+                                       th:field="
+                                       *{rentalDate}" id="dateIn" placeholder="Date"/>
                             </div>
                         </div>
 
-                    <div class="form-group" th:object="${rental}">
+                    <div class="form-group" >
                         <label for="dateOUt">Data Oddania</label>
                         <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
                             <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker1"
-                                   th:field="*{rentalDate}" id="dateOut" placeholder="Date"/>
+                                   th:field="*{returnDate}" id="dateOut" placeholder="Date"/>
                         </div>
                     </div>
 
