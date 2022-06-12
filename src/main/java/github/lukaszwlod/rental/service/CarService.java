@@ -16,5 +16,5 @@ public interface CarService {
     List<Car> getAvailableCars();
 
 
-    Optional<Car> getOne(Long id);
+    Car getOne(Long id);
 }

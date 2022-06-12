@@ -39,7 +39,7 @@ public class ClientController {
 
     @RequestMapping("/getOne")
     @ResponseBody
-    public Optional<Client> getOne(Long id) {
+    public Client getOne(Long id) {
         return clientService.getOne(id);
     }
 

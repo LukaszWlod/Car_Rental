@@ -46,8 +46,8 @@ public class CarServiceImp  implements CarService{
     }
 
     @Override
-    public Optional<Car> getOne(Long id) {
-        return carRepository.findById(id);
+    public Car getOne(Long id) {
+        return carRepository.findById(id).orElseThrow(()-> new RuntimeException("Car doesn't exist"));
     }
 
 

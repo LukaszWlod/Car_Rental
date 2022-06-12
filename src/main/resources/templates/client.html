@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org">
       lang="en">
 <head>
     <meta charset="utf-8">
@@ -109,7 +109,8 @@
                         <a th:href="@{/clients/getOne/(id=${client.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
                         <a th:href="@{/clients/delete/{id}(id=${client.id})}" id="deleteButton" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 
-                        <a th:href="@{/clients/getOne/(id=${client.id})}"class="addItem" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE146;</i></a>
+                        <a th:href="@{/cars/showCarsToRent/{clientId}(clientId=${client.id})}" class="addItem" ><i class="material-icons" data-toggle="tooltip" title="AddClient">&#xE146;</i></a>
+
                     </td>
                 </tr>
 

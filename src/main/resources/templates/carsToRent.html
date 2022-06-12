@@ -15,8 +15,13 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+
+
+
+
+
     <!--    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>-->
-    <script type="text/javascript" src="../static/car.js" th:src="@{/car.js}"></script>
+    <script type="text/javascript" src="../static/carsToRent.js" th:src="@{/carsToRent.js}"></script>
 </head>
 
 
@@ -70,10 +75,7 @@
                     <div class="col-sm-6">
                         <h2> <b> Dostępne samochody </b></h2>
                     </div>
-                    <div class="col-sm-6">
-                        <a href="#addCostumer" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowy samochód</span></a>
-                        <!--                        <a href="#deleteCostumer" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>-->
-                    </div>
+
                 </div>
             </div>
             <table class="table table-striped table-hover">
@@ -110,81 +112,23 @@
                     <td th:text="${car.available} ? 'Tak' : 'Nie'"></td>
 
                     <td>
-                        <a th:href="@{/cars/getOne/(id=${car.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>
-                        <a th:href="@{/cars/delete/{id}(id=${car.id})}" id="deleteButton" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <a th:href="@{/cars/getOne/(id=${car.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE146;</i></a>
+
                     </td>
                 </tr>
 
                 </tbody>
             </table>
-            <!--            <div class="clearfix">-->
-            <!--                <div class="hint-text"> <b>1</b> rekordów z <b>20</b> </div>-->
-            <!--                <ul class="pagination">-->
-            <!--                    <li class="page-item disabled"><a href="#">Poprzednia</a></li>-->
-            <!--                    <li class="page-item-active"><a href="#" class="page-link">1</a></li>-->
-            <!--                    <li class="page-item"><a href="#" class="page-link">2</a></li>-->
-            <!--                    <li class="page-item"><a href="#" class="page-link">3</a></li>-->
-            <!--                    <li class="page-item"><a href="#" class="page-link">4</a></li>-->
-            <!--                    <li class="page-item"><a href="#" class="page-link">5</a></li>-->
-            <!--                    <li class="page-item"><a href="#" class="page-link">Następna</a></li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
+
         </div>
     </div>
 </div>
 <!-- Add Modal HTML -->
-<div id="addCostumer" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
 
 
 
-            <!--/*@thymesVar id="car" type="github.lukaszwlod.rental.model.Car"*/-->
-            <form th:action="@{/cars/addNew}" th:object="${car}" method="post" >
-                <div class="modal-header">
-                    <h4 class="modal-title">Dodaj Samochód</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Producent</label>
-                        <input type="text" class="form-control" required th:field="*{brand}">
-                    </div>
-                    <div class="form-group">
-                        <label>Model</label>
-                        <input type="text" class="form-control" required th:field="*{model}">
-                    </div>
-                    <div class="form-group">
-                        <label>Rok produkcji</label>
-                        <input type="text" class="form-control" required th:field="*{yearOfProduction}">
-                    </div>
-                    <div class="form-group">
-                        <label>Cena</label>
-                        <input type="text" class="form-control" required th:field="*{price}">
-                    </div>
-                    <!--                    <div class="form-group">-->
-                    <!--                        <label>Dostępność</label>-->
-                    <!--                        <input type="text" class="form-control" required th:field="*{available}" >-->
-                    <!--                    </div>-->
-
-                    <div class="form-group">
-                        <label>Dostępność</label>
-
-                        <input type="checkbox" id="checkbox1" name="options[]" th:field="*{available}">
-                        <label for="checkbox1"></label>
-
-                    </div>
 
 
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">
-                    <input type="submit" class="btn btn-success" value="Dodaj">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <!-- Edit Modal HTML -->
 <div id="editCar" class="modal fade">
     <div class="modal-dialog">
@@ -196,37 +140,78 @@
             <form th:action="@{/cars/edit}"  method="put" th:object="${car}">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Edydcja  danych samochodu</h4>
+                    <h4 class="modal-title">Rezerwacja</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
                 </div>
+
+
+
                 <div class="modal-body">
+
+
                     <div class="form-group">
-                        <!--                        <label>Id</label>-->
+                        <label for="clientName">Klient</label>
+                        <textarea readonly id="clientName" class="form-control" th:text="${client.name+' '+client.lastName}"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Samochód</label>
+                        <input readonly id="car" class="form-control" >
+                    </div>
+
+
+                    <div class="form-group">
                         <input id="editId" type="hidden" class="form-control" required th:field="*{id}">
                     </div>
 
+
                     <div class="form-group">
-                        <label>Producent</label>
-                        <input id="editBrand" type="text" class="form-control" required th:field="*{brand}" >
+                        <input id="editBrand" type="hidden" class="form-control" required th:field="*{brand}" >
                     </div>
+
                     <div class="form-group">
-                        <label>Model</label>
-                        <input  id="editModel" type="text" class="form-control" required  th:field="*{model}">
+                        <input  id="editModel" type="hidden" class="form-control" required  th:field="*{model}">
                     </div>
+
                     <div class="form-group">
-                        <label>Rok produkcji</label>
-                        <input  id="editYearOfProduction" type="text" class="form-control" required th:field="*{yearOfProduction}">
+                        <input  id="editYearOfProduction" type="hidden" class="form-control" required th:field="*{yearOfProduction}">
                     </div>
+
                     <div class="form-group">
-                        <label>Cena</label>
-                        <textarea id="editPrice" class="form-control" required th:field="*{price}" ></textarea>
+                        <input id="editPrice" type="hidden" class="form-control" required th:field="*{price}" >
                     </div>
+
                     <div class="form-group">
-                        <!--                       <label> Dostępność</label>-->
                         <input id="editAvailable" type="hidden" class="form-control" th:field="*{available}" required >
                     </div>
 
+
+
+                        <!--/*@thymesVar id="rental" type="github.lukaszwlod.rental.model.Rental"*/-->
+                        <div class="form-group" th:object="${rental}">
+                            <label for="dateIN">Data wypożyczenia</label>
+                            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker1"
+                                       th:field="*{rentalDate}" id="dateIn" placeholder="Date"/>
+                            </div>
+                        </div>
+
+                    <div class="form-group" th:object="${rental}">
+                        <label for="dateOUt">Data Oddania</label>
+                        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+                            <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker1"
+                                   th:field="*{rentalDate}" id="dateOut" placeholder="Date"/>
+                        </div>
+                    </div>
+
+
+
+
                 </div>
+
+
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">
                     <input type="submit" class="btn btn-info" value="Zapisz">
@@ -235,28 +220,9 @@
         </div>
     </div>
 </div>
-<!-- Delete Modal HTML -->
-<div id="deleteCostumer" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!--/*@thymesVar id="client" type="github.lukaszwlod.rental.model.Client"*/-->
 
-            <form action="" method="delete" id="deleteForm" >
-                <div class="modal-header">
-                    <h4 class="modal-title">Usuń samochód</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <p>Jesteś pewien że chcesz usuńąć ten wpis?</p>
-                    <p class="text-warning"><small>Ta akcja jest nieodwracalna.</small></p>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">
-                    <input type="submit" class="btn btn-danger" >
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
+
+
 </body>
 </html>

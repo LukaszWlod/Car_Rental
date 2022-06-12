@@ -43,8 +43,8 @@ public class ClientServiceImp  implements ClientService{
     }
 
     @Override
-    public Optional<Client> getOne(Long id) {
-        return clientRepository.findById(id);
+    public Client getOne(Long id) {
+        return clientRepository.findById(id).orElseThrow(()-> new RuntimeException("Client doesn't exist"));
     }
 
 

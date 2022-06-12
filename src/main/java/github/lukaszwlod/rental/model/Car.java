@@ -23,7 +23,15 @@ public class Car {
 
         private  boolean available;
 
-
-
-
+        @Override
+        public String toString() {
+                return "Car{" +
+                        "id=" + id +
+                        ", brand='" + brand + '\'' +
+                        ", model='" + model + '\'' +
+                        ", yearOfProduction='" + yearOfProduction + '\'' +
+                        ", price=" + price +
+                        ", available=" + available +
+                        '}';
+        }
 }

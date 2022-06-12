@@ -2,6 +2,7 @@ package github.lukaszwlod.rental.Controller;
 
 import github.lukaszwlod.rental.model.Car;
 import github.lukaszwlod.rental.model.Client;
+import github.lukaszwlod.rental.model.Rental;
 import github.lukaszwlod.rental.service.CarService;
 import github.lukaszwlod.rental.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class CarController {
     }
 
     @GetMapping("/getOne")
-    public @ResponseBody Optional<Car> getOne(Long id) {
+    public @ResponseBody Car getOne(Long id) {
         return carService.getOne(id);
     }
 
@@ -39,8 +40,14 @@ public class CarController {
     }
     @GetMapping("/showCarsToRent/{clientId}")
     public String showCarsToRent(@PathVariable("clientId") Long clientId ,Model model){
+
         List<Car> cars = carService.getAvailableCars();
-        Optional<Client> client = clientService.getOne(clientId);
+        Client client = clientService.getOne(clientId);
+
+
+
+       model.addAttribute("rental",new Rental());
+        model.addAttribute("car",new Car());
         model.addAttribute("carList",cars);
         model.addAttribute("client",client);
         return "carsToRent";

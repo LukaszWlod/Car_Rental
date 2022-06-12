@@ -14,6 +14,6 @@ public interface ClientService {
     void update (Client client);
 
 
-    Optional<Client> getOne(Long id);
+    Client getOne(Long id);
 
 }

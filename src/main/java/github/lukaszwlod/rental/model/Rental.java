@@ -19,10 +19,10 @@ public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate rentalDate;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate returnDate;
 
     @ManyToOne
@@ -30,6 +30,8 @@ public class Rental {
 
     @ManyToOne
     private Car car;
+
+
 
 
 }
