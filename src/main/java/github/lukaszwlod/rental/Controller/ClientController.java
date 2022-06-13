@@ -23,6 +23,7 @@ public class ClientController {
         this.clientService = clientService;
     }
 
+
     @GetMapping("/showAll")
     public String showClients(Model model){
 

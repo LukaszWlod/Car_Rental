@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("rentals")
 public class RentalController {
@@ -60,6 +62,15 @@ public class RentalController {
 
 
 
-        return "redirect:/cars/showCars";
+        return "redirect:/rentals/showRentals";
+    }
+
+
+    @GetMapping("/showRentals")
+    public String showCars(Model model){
+        model.addAttribute("rental",new Car());
+        List<Rental> rentals = rentalService.getRentals();
+        model.addAttribute("rentalList",rentals);
+        return "rentals";
     }
 }
