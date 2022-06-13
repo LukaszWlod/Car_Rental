@@ -125,10 +125,6 @@
 </div>
 
 
-
-
-
-
 <div id="editCar" class="modal fade" >
     <div class="modal-dialog">
         <div class="modal-content">
@@ -137,8 +133,8 @@
 
 
 
-            <!--/*@thymesVar id="rental" type="github.lukaszwlod.rental.model.Order"*/-->
-            <form th:action="@{/rentals/addRental}"  method="get" th:object="${order}" >
+            <!--/*@thymesVar id="rental" type="github.lukaszwlod.rental.model.Rental"*/-->
+            <form th:action="@{/rentals/addRental}"  method="get" th:object="${rental}" >
 
                 <div class="modal-header" >
                     <h4 class="modal-title">Rezerwacja</h4>
@@ -153,7 +149,7 @@
 
                     <div class="form-group">
                         <label for="clientName">Klient</label>
-                        <textarea readonly id="clientName" class="form-control" th:text="${client.name+' '+client.lastName}"/>
+                        <textarea readonly id="clientName" class="form-control" th:text="${client.name+' '+client.lastName+' id '+client.id}"/>
                     </div>
 
 
@@ -175,19 +171,53 @@
                         <input id="sentClientId" type="hidden" class="form-control" required th:field="*{clientId}">
                     </div>
 
+                    <!--                    <div class="form-group">-->
+                    <!--                        <textarea id="clientId" type="hidden" class="form-control" th:field="${client.id}" ></textarea>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <textarea id="sentClientId" type="hidden" class="form-control" th:field="${clientId}" ></textarea>-->
+                    <!--                    </div>-->
 
 
 
 
+                    <!--                    <div class="form-group">-->
+                    <!--                        <input id="editId" type="hidden" class="form-control" required th:field="*{id}">-->
+                    <!--                    </div>-->
 
-                        <div class="form-group" >
-                            <label for="dateIN">Data wypożyczenia</label>
-                            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                                <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker1"
-                                       th:field="
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <input id="editBrand" type="hidden" class="form-control" required th:field="*{brand}" >-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <input  id="editModel" type="hidden" class="form-control" required  th:field="*{model}">-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <input  id="editYearOfProduction" type="hidden" class="form-control" required th:field="*{yearOfProduction}">-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <input id="editPrice" type="hidden" class="form-control" required th:field="*{price}" >-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <input id="editAvailable" type="hidden" class="form-control" th:field="*{available}" required >-->
+                    <!--                    </div>-->
+
+
+
+
+                    <div class="form-group" >
+                        <label for="dateIN">Data wypożyczenia</label>
+                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                            <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker1"
+                                   th:field="
                                        *{rentalDate}" id="dateIn" placeholder="Date"/>
-                            </div>
                         </div>
+                    </div>
 
                     <div class="form-group" >
                         <label for="dateOUt">Data Oddania</label>

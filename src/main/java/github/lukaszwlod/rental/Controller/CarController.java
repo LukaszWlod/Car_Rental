@@ -2,6 +2,7 @@ package github.lukaszwlod.rental.Controller;
 
 import github.lukaszwlod.rental.model.Car;
 import github.lukaszwlod.rental.model.Client;
+import github.lukaszwlod.rental.model.Order;
 import github.lukaszwlod.rental.model.Rental;
 import github.lukaszwlod.rental.service.CarService;
 import github.lukaszwlod.rental.service.ClientService;
@@ -46,7 +47,7 @@ public class CarController {
 
 
 
-       model.addAttribute("rental",new Rental());
+       model.addAttribute("order",new Order());
         model.addAttribute("car",new Car());
         model.addAttribute("carList",cars);
         model.addAttribute("client",client);
@@ -56,7 +57,7 @@ public class CarController {
    @PostMapping("/addNew")
     public String addNewCar(@ModelAttribute("car") Car car){
         carService.saveCar(car);
-       System.out.println(car.getBrand());
+       System.out.println("id nowego samochodu: " + car.getId());
         return "redirect:/cars/showCars";
     }
 

@@ -25,13 +25,21 @@ public class Rental {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate returnDate;
 
-    private Long clientId;
-
-    private Long carId;
+   @OneToOne
+   @JoinColumn(name = "client_id",referencedColumnName = "id")
+    private  Client client;
+   @OneToOne
+   @JoinColumn(name = "car_id",referencedColumnName = "id")
+    private  Car car;
 
     private boolean isOutOfDate;
 
 
-
-
+    public Rental(LocalDate rentalDate, LocalDate returnDate, Client client, Car car, boolean isOutOfDate) {
+        this.rentalDate = rentalDate;
+        this.returnDate = returnDate;
+        this.client = client;
+        this.car = car;
+        this.isOutOfDate = isOutOfDate;
+    }
 }
