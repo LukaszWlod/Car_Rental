@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("rentals")
+@RequestMapping("/rentals")
+
 public class RentalController {
 
     RentalService rentalService;
@@ -71,6 +72,11 @@ public class RentalController {
         model.addAttribute("rental",new Car());
         List<Rental> rentals = rentalService.getRentals();
         model.addAttribute("rentalList",rentals);
-        return "rentals";
+
+        for (var rental:rentals
+             ) {
+            System.out.println(rental.toString());
+        }
+        return "rental";
     }
 }
