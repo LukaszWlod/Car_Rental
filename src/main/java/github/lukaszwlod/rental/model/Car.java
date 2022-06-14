@@ -20,18 +20,9 @@ public class Car {
         private String model;
         private String yearOfProduction;
         private double price;
-
+        private String registrationNumber;
+        private String vin;
         private  boolean available;
 
-        @Override
-        public String toString() {
-                return "Car{" +
-                        "id=" + id +
-                        ", brand='" + brand + '\'' +
-                        ", model='" + model + '\'' +
-                        ", yearOfProduction='" + yearOfProduction + '\'' +
-                        ", price=" + price +
-                        ", available=" + available +
-                        '}';
-        }
+
 }

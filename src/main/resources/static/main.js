@@ -12,6 +12,7 @@ $('document').ready(function () {
     $.get(href, function(client, status){
         $('#editId').val(client.id);
         $('#editName').val(client.name);
+        $('#editPesel').val(client.pesel);
         $('#editLastName').val(client.lastName);
         $('#editEmail').val(client.email);
         $('#editAddress').val(client.address);

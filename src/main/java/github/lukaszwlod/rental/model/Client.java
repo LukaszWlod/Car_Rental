@@ -22,6 +22,7 @@ public class Client {
     private Long id;
     private String name;
     private String lastName;
+    private String pesel;
     private String email;
     private String address;
     private int phoneNumber;
