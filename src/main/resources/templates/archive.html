@@ -112,10 +112,10 @@
 
 
 
-<!--                    <td th:text="${rental.car.available} ? 'Tak' : 'Nie'"></td>-->
+                    <!--                    <td th:text="${rental.car.available} ? 'Tak' : 'Nie'"></td>-->
 
                     <td>
-<!--                        <a th:href="@{/cars/getOne/(id=${car.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>-->
+                        <!--                        <a th:href="@{/cars/getOne/(id=${car.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>-->
                         <a th:href="@{/rentals/moveToArchive/{id}(id=${rental.id})}" id="deleteButton" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
@@ -233,6 +233,7 @@
 <div id="deleteCostumer" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
+            <!--/*@thymesVar id="client" type="github.lukaszwlod.rental.model.Client"*/-->
 
             <form action="" method="delete" id="deleteForm" >
                 <div class="modal-header">

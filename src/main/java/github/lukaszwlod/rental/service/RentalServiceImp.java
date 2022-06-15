@@ -17,8 +17,18 @@ public class RentalServiceImp  implements RentalService{
 
     @Override
     public List<Rental> getRentals() {
-        return rentalRepository.findAll() ;
+        return rentalRepository.findAllByIsOutOfDateFalse();
     }
+    @Override
+    public List<Rental> getArchive() {
+        return rentalRepository.findAllByIsOutOfDateTrue();
+    }
+
+    @Override
+    public Rental getOne(Long id) {
+        return rentalRepository.findById(id).orElseThrow(()-> new RuntimeException("Record doesn't exist"));
+    }
+
 
     @Override
     public void saveRental(Rental rental) {

@@ -11,8 +11,10 @@ import java.util.List;
 @Service
 public interface RentalService {
     List<Rental> getRentals();
+    List<Rental> getArchive();
     void saveRental(Rental rental);
     void deleteRentalById(Long id);
+    Rental getOne(Long id);
 
 
 }

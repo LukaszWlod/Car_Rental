@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 @Controller
 @RequestMapping("/rentals")
 
@@ -51,9 +53,13 @@ public class RentalController {
                 client.toString()
         );
 
+        long daysBetween =1+ DAYS.between(order.getRentalDate(), order.getReturnDate());
+        double charge = car.getPrice()*daysBetween;
+
+
         Rental newRental= new Rental(order.getId(),
                 order.getRentalDate(),order.getRentalDate(),client,
-                car,false
+                car,charge,false
         );
 
         System.out.println( newRental.toString());
@@ -79,4 +85,15 @@ public class RentalController {
         }
         return "rental";
     }
+
+
+    @RequestMapping(value="/moveToArchive/{id}", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String moveToArchive(@PathVariable("id") Long id ){
+        Rental rental = rentalService.getOne(id);
+        rental.setOutOfDate(true);
+        rentalService.saveRental(rental);
+        return "redirect:/rentals/showRentals";
+    }
+
+
 }

@@ -31,7 +31,7 @@ public class Rental {
    @OneToOne
    @JoinColumn(name = "car_id",referencedColumnName = "id")
     private  Car car;
-
+    private  double charge;
     private boolean isOutOfDate;
 
 

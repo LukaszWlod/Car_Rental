@@ -124,18 +124,7 @@
 
                 </tbody>
             </table>
-            <!--            <div class="clearfix">-->
-            <!--                <div class="hint-text"> <b>1</b> rekordów z <b>20</b> </div>-->
-            <!--                <ul class="pagination">-->
-            <!--                    <li class="page-item disabled"><a href="#">Poprzednia</a></li>-->
-            <!--                    <li class="page-item-active"><a href="#" class="page-link">1</a></li>-->
-            <!--                    <li class="page-item"><a href="#" class="page-link">2</a></li>-->
-            <!--                    <li class="page-item"><a href="#" class="page-link">3</a></li>-->
-            <!--                    <li class="page-item"><a href="#" class="page-link">4</a></li>-->
-            <!--                    <li class="page-item"><a href="#" class="page-link">5</a></li>-->
-            <!--                    <li class="page-item"><a href="#" class="page-link">Następna</a></li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
+
         </div>
     </div>
 </div>
@@ -177,10 +166,6 @@
                         <label>Cena</label>
                         <input type="text" class="form-control" required th:field="*{price}">
                     </div>
-<!--                    <div class="form-group">-->
-<!--                        <label>Dostępność</label>-->
-<!--                        <input type="text" class="form-control" required th:field="*{available}" >-->
-<!--                    </div>-->
 
                     <div class="form-group">
                         <label>Dostępność</label>
@@ -229,6 +214,15 @@
                         <input  id="editModel" type="text" class="form-control" required  th:field="*{model}">
                     </div>
                     <div class="form-group">
+                        <label>Nr. Rejstracyjny</label>
+                        <input  id="editRegistrationNumber" type="text" class="form-control" required  th:field="*{registrationNumber}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>VIN</label>
+                        <input  id="editVin" type="text" class="form-control" required  th:field="*{vin}">
+                    </div>
+                    <div class="form-group">
                         <label>Rok produkcji</label>
                         <input  id="editYearOfProduction" type="text" class="form-control" required th:field="*{yearOfProduction}">
                     </div>
@@ -267,7 +261,7 @@
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Anuluj">
-                    <input type="submit" class="btn btn-danger" >
+                    <input type="submit" class="btn btn-danger" value=Usuń >
                 </div>
             </form>
         </div>

@@ -13,6 +13,8 @@ $('document').ready(function () {
             $('#editId').val(car.id);
             $('#editBrand').val(car.brand);
             $('#editModel').val(car.model);
+            $('#editRegistrationNumber').val(car.registrationNumber)
+            $('#editVin').val(car.vin);
             $('#editYearOfProduction').val(car.yearOfProduction);
             $('#editPrice').val(car.price);
             $('#editAvailable').val(car.available);

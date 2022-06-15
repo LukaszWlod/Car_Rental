@@ -57,7 +57,6 @@ public class CarController {
    @PostMapping("/addNew")
     public String addNewCar(@ModelAttribute("car") Car car){
         carService.saveCar(car);
-       System.out.println("id nowego samochodu: " + car.getId());
         return "redirect:/cars/showCars";
     }
 
