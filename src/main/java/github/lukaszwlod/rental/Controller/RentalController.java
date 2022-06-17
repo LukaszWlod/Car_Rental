@@ -96,6 +96,9 @@ public class RentalController {
     public String moveToArchive(@PathVariable("id") Long id ){
         Rental rental = rentalService.getOne(id);
         rental.setOutOfDate(true);
+        Car car  = rental.getCar();
+        car.setAvailable(true);
+        carService.update(car);
         rentalService.saveRental(rental);
         return "redirect:/rentals/showRentals";
     }
