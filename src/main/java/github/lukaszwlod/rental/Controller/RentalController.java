@@ -74,16 +74,21 @@ public class RentalController {
 
 
     @GetMapping("/showRentals")
-    public String showCars(Model model){
+    public String showRentals(Model model){
         model.addAttribute("rental",new Car());
         List<Rental> rentals = rentalService.getRentals();
         model.addAttribute("rentalList",rentals);
 
-        for (var rental:rentals
-             ) {
-            System.out.println(rental.toString());
-        }
         return "rental";
+    }
+
+    @GetMapping("/showArchive")
+    public String showArchive(Model model){
+        model.addAttribute("rental",new Car());
+        List<Rental> rentals = rentalService.getArchive();
+        model.addAttribute("rentalList",rentals);
+
+        return "archive";
     }
 
 
