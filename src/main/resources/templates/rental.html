@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    <!--    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>-->
+
     <script type="text/javascript" src="../static/car.js" th:src="@{/car.js}"></script>
 </head>
 
@@ -24,7 +24,7 @@
 <body>
 
 
-<!-- Navigation -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
         <a class="navbar-brand" href="#">
@@ -55,14 +55,7 @@
             </ul>
         </div>
 
-<!--        <ul class="nav navbar-nav ml-auto">-->
-            <!--            <li class="nav-item">-->
-            <!--                <a class="nav-link" href="#"><span class="fas fa-user"></span>Zaloguj</a>-->
-            <!--            </li>-->
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Wyloguj</a>-->
-<!--            </li>-->
-<!--        </ul>-->
+
     </div>
 </nav>
 
@@ -76,7 +69,7 @@
                     </div>
                     <div class="col-sm-6">
                         <a th:href="@{/clients/showAll}" class="btn btn-success" ><i class="material-icons">&#xE147;</i> <span>Dodaj nowe</span></a>
-                        <!--                        <a href="#deleteCostumer" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>-->
+
                     </div>
                 </div>
             </div>
@@ -112,10 +105,10 @@
 
 
 
-<!--                    <td th:text="${rental.car.available} ? 'Tak' : 'Nie'"></td>-->
+
 
                     <td>
-<!--                        <a th:href="@{/cars/getOne/(id=${car.id})}"class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edytuj">&#xE254;</i></a>-->
+
                         <a th:href="@{/rentals/moveToArchive/{id}(id=${rental.id})}" id="deleteButton" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
