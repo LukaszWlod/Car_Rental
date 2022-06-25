@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-<!--    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>-->
+
     <script type="text/javascript" src="../static/car.js" th:src="@{/car.js}"></script>
 </head>
 
@@ -23,7 +23,7 @@
 <body>
 
 
-<!-- Navigation -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
         <a class="navbar-brand" href="#">
@@ -53,14 +53,7 @@
             </ul>
         </div>
 
-<!--        <ul class="nav navbar-nav ml-auto">-->
-<!--            &lt;!&ndash;            <li class="nav-item">&ndash;&gt;-->
-<!--            &lt;!&ndash;                <a class="nav-link" href="#"><span class="fas fa-user"></span>Zaloguj</a>&ndash;&gt;-->
-<!--            &lt;!&ndash;            </li>&ndash;&gt;-->
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Wyloguj</a>-->
-<!--            </li>-->
-<!--        </ul>-->
+
     </div>
 </nav>
 
@@ -74,7 +67,7 @@
                     </div>
                     <div class="col-sm-6">
                         <a href="#addCostumer" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowy samochód</span></a>
-                        <!--                        <a href="#deleteCostumer" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>-->
+
                     </div>
                 </div>
             </div>
@@ -105,14 +98,7 @@
                     <td th:text="${car.yearOfProduction}"></td>
                     <td th:text="${car.price}"></td>
 
-<!--                    <td>-->
 
-
-<!--                        <span class="custom-checkbox">-->
-<!--								<input type="checkbox" id="checkbox1" name="options[]" value="1" th:checked="*{car.available}">-->
-<!--								<label for="checkbox1"></label>-->
-<!--							</span>-->
-<!--                    </td>-->
                     <td th:text="${car.available} ? 'Tak' : 'Nie'"></td>
 
                     <td>
@@ -127,14 +113,14 @@
         </div>
     </div>
 </div>
-<!-- Add Modal HTML -->
+
 <div id="addCostumer" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
 
 
 
-            <!--/*@thymesVar id="car" type="github.lukaszwlod.rental.model.Car"*/-->
+
             <form th:action="@{/cars/addNew}" th:object="${car}" method="post" >
                 <div class="modal-header">
                     <h4 class="modal-title">Dodaj Samochód</h4>
@@ -191,7 +177,7 @@
 
 
 
-            <!--/*@thymesVar id="car" type="github.lukaszwlod.rental.model.Car"*/-->
+
             <form th:action="@{/cars/edit}"  method="put" th:object="${car}">
 
                 <div class="modal-header">
@@ -200,7 +186,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-<!--                        <label>Id</label>-->
+
                         <input id="editId" type="hidden" class="form-control" required th:field="*{id}">
                     </div>
 
@@ -243,12 +229,10 @@
         </div>
     </div>
 </div>
-<!-- Delete Modal HTML -->
+
 <div id="deleteCostumer" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <!--/*@thymesVar id="client" type="github.lukaszwlod.rental.model.Client"*/-->
-
             <form action="" method="delete" id="deleteForm" >
                 <div class="modal-header">
                     <h4 class="modal-title">Usuń samochód</h4>
