@@ -31,7 +31,6 @@
 <body>
 
 
-<!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
         <a class="navbar-brand" href="#">
@@ -64,14 +63,7 @@
             </ul>
         </div>
 
-<!--        <ul class="nav navbar-nav ml-auto">-->
-<!--&lt;!&ndash;            <li class="nav-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                <a class="nav-link" href="#"><span class="fas fa-user"></span>Zaloguj</a>&ndash;&gt;-->
-<!--&lt;!&ndash;            </li>&ndash;&gt;-->
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Wyloguj</a>-->
-<!--            </li>-->
-<!--        </ul>-->
+
     </div>
 </nav>
 
@@ -85,7 +77,7 @@
                     </div>
                     <div class="col-sm-6">
                         <a href="#addCostumer" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Dodaj nowego klienta</span></a>
-<!--                        <a href="#deleteCostumer" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Usuń</span></a>-->
+
                     </div>
                 </div>
             </div>
@@ -127,26 +119,15 @@
 
                 </tbody>
             </table>
-<!--            <div class="clearfix">-->
-<!--                <div class="hint-text"> <b>1</b> rekordów z <b>20</b> </div>-->
-<!--                <ul class="pagination">-->
-<!--                    <li class="page-item disabled"><a href="#">Poprzednia</a></li>-->
-<!--                    <li class="page-item-active"><a href="#" class="page-link">1</a></li>-->
-<!--                    <li class="page-item"><a href="#" class="page-link">2</a></li>-->
-<!--                    <li class="page-item"><a href="#" class="page-link">3</a></li>-->
-<!--                    <li class="page-item"><a href="#" class="page-link">4</a></li>-->
-<!--                    <li class="page-item"><a href="#" class="page-link">5</a></li>-->
-<!--                    <li class="page-item"><a href="#" class="page-link">Następna</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
+
         </div>
     </div>
 </div>
-<!-- Add Modal HTML -->
+
 <div id="addCostumer" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <!--/*@thymesVar id="client" type="github.lukaszwlod.rental.model.Client"*/-->
+
             <form th:action="@{/clients/addNew}" th:object="${client}" method="post" >
                 <div class="modal-header">
                     <h4 class="modal-title">Dodaj Klienta</h4>
@@ -192,7 +173,7 @@
         <div class="modal-content">
 
 
-            <!--/*@thymesVar id="client" type="github.lukaszwlod.rental.model.Client"*/-->
+
             <form th:action="@{/clients/edit}"  method="put" th:object="${client}">
 
                 <div class="modal-header">
@@ -238,7 +219,7 @@
         </div>
     </div>
 </div>
-<!-- Delete Modal HTML -->
+
 <div id="deleteCostumer" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">

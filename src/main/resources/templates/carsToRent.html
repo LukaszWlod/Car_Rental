@@ -17,10 +17,6 @@
 
 
 
-
-
-
-    <!--    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>-->
     <script type="text/javascript" src="../static/carsToRent.js" th:src="@{/carsToRent.js}"></script>
 </head>
 
@@ -59,14 +55,7 @@
             </ul>
         </div>
 
-<!--        <ul class="nav navbar-nav ml-auto">-->
-<!--            &lt;!&ndash;            <li class="nav-item">&ndash;&gt;-->
-<!--            &lt;!&ndash;                <a class="nav-link" href="#"><span class="fas fa-user"></span>Zaloguj</a>&ndash;&gt;-->
-<!--            &lt;!&ndash;            </li>&ndash;&gt;-->
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Wyloguj</a>-->
-<!--            </li>-->
-<!--        </ul>-->
+
     </div>
 </nav>
 
@@ -104,14 +93,7 @@
                     <td th:text="${car.yearOfProduction}"></td>
                     <td th:text="${car.price}"></td>
 
-                    <!--                    <td>-->
 
-
-                    <!--                        <span class="custom-checkbox">-->
-                    <!--								<input type="checkbox" id="checkbox1" name="options[]" value="1" th:checked="*{car.available}">-->
-                    <!--								<label for="checkbox1"></label>-->
-                    <!--							</span>-->
-                    <!--                    </td>-->
                     <td th:text="${car.available} ? 'Tak' : 'Nie'"></td>
 
                     <td>
